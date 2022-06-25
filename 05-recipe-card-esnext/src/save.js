@@ -23,6 +23,7 @@ const Save = ( props ) => {
 			) }
 
 			<h3>{ __( 'Ingredients', 'gutenberg-examples' ) }</h3>
+
 			<RichText.Content
 				tagName="ul"
 				className="ingredients"
@@ -30,6 +31,23 @@ const Save = ( props ) => {
 			/>
 
 			<h3>{ __( 'Instructions', 'gutenberg-examples' ) }</h3>
+
+			<div className="time">
+				<div>
+					<p className="time-title"> {__( 'Prep Time', 'gutenberg-examples' ) } </p>
+					<p className="time-number"> {__( '15 mins', 'gutenberg-examples' ) }  </p>
+				</div>
+				<div>
+					<p className="time-title"> { __( 'Cook Time', 'gutenberg-examples' ) } </p>
+					<p className="time-number"> {__( '15 mins', 'gutenberg-examples' ) }  </p>
+				</div>
+				<div>
+					<p className="time-title"> { __( 'Total Time', 'gutenberg-examples' ) } </p>
+					<p className="time-number"> {__( '30 mins', 'gutenberg-examples' ) } </p>
+				</div>
+			</div>
+
+
 			<RichText.Content
 				tagName="div"
 				className="steps"

@@ -39,3 +39,26 @@
 	clear:both; 
 	display: table; 
 }
+
+/*Cooking Time Bar Styles*/
+.time {
+	background-color: rgb(226 246 242 / 32%);
+	display: flex; 
+	justify-content: space-between;
+	margin: 42px 0px;
+	width: 100%;
+	max-width: 300px;
+	padding: 8px;
+}
+
+.time p {
+	margin: 0;
+}
+
+.time .time-title {
+	color: rgb(27, 121, 101);
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+}
