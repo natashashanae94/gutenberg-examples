@@ -29,6 +29,11 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".steps"
+		},
+		"time": {
+			"type": "string",
+			"source": "html",
+			"selector": ".time"
 		}
 	},
 	"example": {
@@ -53,3 +58,4 @@
 	"editorScript": "file:./build/index.js",
 	"style": "file:./build/style-index.css"
 }
+ 

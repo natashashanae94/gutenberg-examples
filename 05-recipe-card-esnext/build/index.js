@@ -67,8 +67,6 @@ const Edit = props => {
       instructions: value
     });
   };
-  /* TICKET #3 PROBLEM */
-
 
   function getFoodNutrition(value) {
     const initials = {
@@ -149,21 +147,27 @@ const Edit = props => {
         alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Upload Recipe Image', 'gutenberg-examples')
       }));
     }
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ingredients', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "post-recipe"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "recipe-ingredients"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ingredients', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "ul",
     multiline: "li",
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write a list of ingredients…', 'gutenberg-examples'),
     value: ingredients,
     onChange: onChangeIngredients,
     className: "ingredients"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Instructions', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "div",
-    multiline: "p",
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "recipe-instruction"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Instructions', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "ol",
+    multiline: "li",
     className: "steps",
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write the instructions…', 'gutenberg-examples'),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write the instructions. Indent between each step to make an ordered list.', 'gutenberg-examples'),
     value: instructions,
     onChange: onChangeInstructions
-  }));
+  }))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
@@ -240,22 +244,31 @@ const Save = props => {
       title,
       mediaURL,
       ingredients,
-      instructions
+      instructions,
+      time
     }
   } = props;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save();
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
     tagName: "h1",
+    className: "recipe-title",
     value: title
-  }), mediaURL && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "recipe-image",
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "recipe-image"
+  }, mediaURL && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: mediaURL,
     alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Recipe Image', 'gutenberg-examples')
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ingredients', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "post-recipe"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "recipe-ingredients"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ingredients', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
     tagName: "ul",
     className: "ingredients",
     value: ingredients
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Instructions', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "recipe-instructions"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Instructions', 'gutenberg-examples')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "time"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "time-title"
@@ -270,10 +283,10 @@ const Save = props => {
   }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Total Time', 'gutenberg-examples'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "time-number"
   }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('30 mins', 'gutenberg-examples'), " "))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
-    tagName: "div",
+    tagName: "ol",
     className: "steps",
     value: instructions
-  }));
+  }))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
@@ -348,7 +361,7 @@ module.exports = window["wp"]["i18n"];
   \********************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"gutenberg-examples/example-05-recipe-card-esnext","title":"Example: Recipe Card (ESNext)","icon":"index-card","category":"layout","attributes":{"title":{"type":"string","source":"html","selector":"h1"},"mediaID":{"type":"number"},"mediaURL":{"type":"string","source":"attribute","selector":"img","attribute":"src"},"ingredients":{"type":"string","source":"html","selector":".ingredients"},"instructions":{"type":"string","source":"html","selector":".steps"}},"example":{"attributes":{"title":"Chocolate Chip Cookies","mediaID":1,"mediaURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/320px-2ChocolateChipCookies.jpg","ingredients":[{"type":"li","props":{"children":["flour"]}},{"type":"li","props":{"children":["sugar"]}},{"type":"li","props":{"children":["chocolate"]}},{"type":"li","props":{"children":["💖"]}}],"instructions":[{"type":"p","props":{"children":["Mix, Bake, Enjoy!"]}}]}},"editorScript":"file:./build/index.js","style":"file:./build/style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"gutenberg-examples/example-05-recipe-card-esnext","title":"Example: Recipe Card (ESNext)","icon":"index-card","category":"layout","attributes":{"title":{"type":"string","source":"html","selector":"h1"},"mediaID":{"type":"number"},"mediaURL":{"type":"string","source":"attribute","selector":"img","attribute":"src"},"ingredients":{"type":"string","source":"html","selector":".ingredients"},"instructions":{"type":"string","source":"html","selector":".steps"},"time":{"type":"string","source":"html","selector":".time"}},"example":{"attributes":{"title":"Chocolate Chip Cookies","mediaID":1,"mediaURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/320px-2ChocolateChipCookies.jpg","ingredients":[{"type":"li","props":{"children":["flour"]}},{"type":"li","props":{"children":["sugar"]}},{"type":"li","props":{"children":["chocolate"]}},{"type":"li","props":{"children":["💖"]}}],"instructions":[{"type":"p","props":{"children":["Mix, Bake, Enjoy!"]}}]}},"editorScript":"file:./build/index.js","style":"file:./build/style-index.css"}');
 
 /***/ })
 
