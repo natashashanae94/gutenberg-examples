@@ -59,6 +59,7 @@ const Edit = props => {
     setAttributes({
       ingredients: value
     });
+    console.log(getFoodNutrition(value));
   };
 
   const onChangeInstructions = value => {
@@ -66,7 +67,65 @@ const Edit = props => {
       instructions: value
     });
   };
+  /* TICKET #3 PROBLEM */
 
+
+  function getFoodNutrition(value) {
+    const initials = {
+      calories: 0,
+      carbs: 0,
+      fat: 0
+    };
+    const caloriesData = {
+      egg: {
+        calories: 105,
+        carbs: 42,
+        fat: 1
+      },
+      milk: {
+        calories: 52,
+        carbs: 33,
+        fat: 4
+      },
+      butter: {
+        calories: 237,
+        carbs: 2,
+        fat: 21
+      },
+      flour: {
+        calories: 34,
+        carbs: 83,
+        fat: 6
+      },
+      cream: {
+        calories: 223,
+        carbs: 3,
+        fat: 44
+      }
+    }; // Convert list string value to array
+
+    value = value.replace('<li>', '').split('</li>');
+    value = value.map(elem => elem.replace("<li>", "")); //console.log({value});
+    // Loop over the caloriesData keys
+
+    const {
+      calories,
+      carbs,
+      fat
+    } = Object.keys(caloriesData) // filter keys that are in the value (entries)
+    .filter(key => value.indexOf(key) > -1) // Calculate sum of calories, carbs, fat
+    .reduce((previousValue, key, currentIndex, array) => {
+      console.log(array);
+      return {
+        calories: previousValue.calories + caloriesData[key].calories,
+        carbs: previousValue.carbs + caloriesData[key].carbs,
+        fat: previousValue.fat + caloriesData[key].fat
+      };
+    }, initials);
+    return `Calories: ${calories}kcal - Carbs: ${carbs}gr - Fat: ${fat}gr`;
+  }
+
+  ;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h1",
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write Recipe title…', 'gutenberg-examples'),
